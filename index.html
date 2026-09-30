@@ -1165,7 +1165,11 @@ const map = L.map('map', {
   zoomControl: true
 });
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+// Chave CARTO Basemaps (uso não-comercial, 5M req/mes): restrita por dominio no
+// dashboard CARTO (chlima123.github.io). O Referer e' enviado pelo proprio navegador --
+// nao ha o que configurar no HTML alem do ?key=. Ver nota do vault / skill.
+const CARTO_KEY = 'cb1_45k2_1_177642698bdff751f40823e2';
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png?key=' + CARTO_KEY, {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>',
   subdomains: 'abcd',
   maxZoom: 19
